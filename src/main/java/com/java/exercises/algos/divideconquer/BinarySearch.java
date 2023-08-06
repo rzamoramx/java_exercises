@@ -1,4 +1,4 @@
-package com.java.exercises.algos;
+package com.java.exercises.algos.divideconquer;
 
 public class BinarySearch {
     public int search(int[] array, int target) {
@@ -25,5 +25,15 @@ public class BinarySearch {
         }
 
         return -1;
+    }
+
+    public static void main(String[] args) {
+        BinarySearch binarySearch = new BinarySearch();
+        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        int target = 25;
+
+        System.out.println("array: " + java.util.Arrays.toString(array));
+        System.out.println("target: " + target);
+        System.out.println("index of target: " + binarySearch.search(array, target));
     }
 }

@@ -1,5 +1,6 @@
 package com.java.exercises.algos;
 
+import com.java.exercises.algos.divideconquer.BinarySearch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
