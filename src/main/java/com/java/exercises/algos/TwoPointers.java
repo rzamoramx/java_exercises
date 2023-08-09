@@ -56,17 +56,4 @@ public class TwoPointers {
         }
         System.out.println();
     }
-
-    public static void main(String[] args) {
-        System.out.println("Rotate:");
-        int[] arr1 = {1, 2, 3, 4, 5, 6, 7};
-        System.out.println("nums: " + java.util.Arrays.toString(rotate(arr1, 3)));
-
-        System.out.println("Two Pointers:");
-        int[] nums = {1, 1, 1, 2, 2, 3, 4, 5, 5, 5, 5, 6, 6, 7};
-
-        System.out.println("nums: " + java.util.Arrays.toString(nums));
-        System.out.println("length of nums after removing duplicates: " + removeDuplicates(nums));
-        System.out.println("nums: " + java.util.Arrays.toString(nums));
-    }
 }

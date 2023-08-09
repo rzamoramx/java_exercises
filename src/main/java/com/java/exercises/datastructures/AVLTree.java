@@ -1,7 +1,10 @@
 package com.java.exercises.datastructures;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class AVLTree {
-    class Node {
+    static class Node {
         int key;
         int height;
         Node left;
@@ -112,6 +115,32 @@ public class AVLTree {
             return searchNode(node.left, key);
         } else {
             return searchNode(node.right, key);
+        }
+    }
+
+    public void printTree() {
+        if (root == null) {
+            System.out.println("Árbol AVL vacío.");
+            return;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            for (int i = 0; i < levelSize; i++) {
+                Node node = queue.poll();
+                System.out.print(node.key + " ");
+
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            System.out.println();
         }
     }
 }
