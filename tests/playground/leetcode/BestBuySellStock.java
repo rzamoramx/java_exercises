@@ -1,6 +1,6 @@
-package playground;
+package playground.leetcode;
 
-public class LeetCode {
+public class BestBuySellStock {
     public static void main(String[] args) {
         // [6,1,3,2,4,7] should be 7
         int[] prices = new int[]{6, 1, 3, 2, 4, 7};
