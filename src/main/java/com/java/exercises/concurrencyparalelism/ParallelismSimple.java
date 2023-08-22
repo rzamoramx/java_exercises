@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ParallelismSimple {
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         simpleTasks();
         sumParallelism();
     }
@@ -60,5 +60,5 @@ public class ParallelismSimple {
 
             executorService.shutdown();
         }
-    }*/
+    }
 }
