@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HashTableScratch<K, V> {
-    private int size;
+    private final int size;
     private List<List<Entry<K, V>>> table;
 
     public HashTableScratch(int size) {
@@ -16,7 +16,7 @@ public class HashTableScratch<K, V> {
     }
 
     private int hashFunction(K key) {
-        return key.hashCode() % size;
+        return Math.abs(key.hashCode()) % size;
     }
 
     public void insert(K key, V value) {

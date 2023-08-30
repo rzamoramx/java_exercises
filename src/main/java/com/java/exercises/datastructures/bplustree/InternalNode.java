@@ -20,22 +20,38 @@ class InternalNode extends Node {
 
     void splitChild(int index) {
         Node child = children.get(index);
-        InternalNode newNode = new InternalNode(this.degree);
+        int mid;// Insert the new node as a child
 
-        int mid = child.keys.size() / 2;
-        for (int i = mid; i < child.keys.size(); i++) {
-            newNode.keys.add(child.keys.get(i)); // Move keys to the new node
+        if (child instanceof InternalNode) {
+            InternalNode newNode = new InternalNode(this.degree);
+            mid = child.keys.size() / 2;
+            for (int i = mid; i < child.keys.size(); i++) {
+                newNode.keys.add(child.keys.get(i)); // Move keys to the new node
+            }
+
+            for (int i = mid; i < child.keys.size(); i++) {
+                newNode.children.add(((InternalNode) child).children.get(i)); // Move children to the new node
+            }
+
+            child.keys.subList(mid, child.keys.size()).clear();
+            ((InternalNode) child).children.subList(mid, child.keys.size() + 1).clear();
+
+            keys.add(index, newNode.keys.get(0)); // Insert a key from the new node to this node
+            children.add(index + 1, newNode); // Insert the new node as a child
+        } else {
+            LeafNode newNode = new LeafNode(this.degree);
+            mid = child.keys.size() / 2;
+            for (int i = mid; i < child.keys.size(); i++) {
+                newNode.keys.add(child.keys.get(i)); // Move keys to the new node
+                newNode.values.add(((LeafNode) child).values.get(i)); // Move values to the new node
+            }
+
+            child.keys.subList(mid, child.keys.size()).clear();
+            ((LeafNode) child).values.subList(mid, child.keys.size()).clear();
+
+            keys.add(index, newNode.keys.get(0)); // Insert a key from the new node to this node
+            children.add(index + 1, newNode); // Insert the new node as a child
         }
-
-        for (int i = mid; i < child.keys.size(); i++) {
-            newNode.children.add(((InternalNode) child).children.get(i)); // Move children to the new node
-        }
-
-        child.keys.subList(mid, child.keys.size()).clear();
-        ((InternalNode) child).children.subList(mid, child.keys.size() + 1).clear();
-
-        keys.add(index, newNode.keys.get(0)); // Insert a key from the new node to this node
-        children.add(index + 1, newNode); // Insert the new node as a child
     }
 
     @Override
@@ -53,7 +69,7 @@ class InternalNode extends Node {
     @Override
     String search(int key) {
         int index = 0;
-        while (index < keys.size() && key >= keys.get(index)) {
+        while (index < keys.size() && key > keys.get(index)) {
             index++;
         }
         return children.get(index).search(key); // Search in the appropriate child
@@ -64,6 +80,10 @@ class InternalNode extends Node {
         int index = 0;
         while (index < keys.size() && key >= keys.get(index)) {
             index++;
+        }
+        // if index is more than keys.size() then it means that the key is greater than all the keys in the node
+        if (index == keys.size()) {
+            return new ArrayList<>();
         }
         return children.get(index).exactSearch(key); // Exact search in the appropriate child
     }

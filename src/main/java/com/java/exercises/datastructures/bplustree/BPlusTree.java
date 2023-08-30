@@ -2,6 +2,7 @@ package com.java.exercises.datastructures.bplustree;
 
 import java.util.List;
 
+// NOTE: this scratch implementation of B+ tree is wrong, only for testing purposes
 class BPlusTree {
     private Node root;
     private final int degree;
