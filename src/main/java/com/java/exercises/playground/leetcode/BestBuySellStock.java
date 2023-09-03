@@ -1,4 +1,4 @@
-package playground.leetcode;
+package com.java.exercises.playground.leetcode;
 
 public class BestBuySellStock {
     public static void main(String[] args) {
