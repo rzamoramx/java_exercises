@@ -2,12 +2,6 @@ package com.ivansoft.java.exercises.playground.leetcode;
 
 
 class RemoveDuplicatesArray {
-    public static void main(String[] args) {
-        var input = new int[]{1, 1, 1, 2, 2, 3};
-        var result = removeDuplicates(input);
-        System.out.println("**********Result: " + result);
-    }
-
     public static int removeDuplicates(int[] nums) {
         if (nums.length <= 2)
             return nums.length;

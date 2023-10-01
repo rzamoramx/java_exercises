@@ -3,49 +3,6 @@ package com.ivansoft.java.exercises.playground.leetcode;
 import java.util.Arrays;
 
 public class JumpGame {
-    public static void main(String[] args) {
-        var nums = new int[]{2, 3, 1, 1, 4};
-        var result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        nums = new int[]{3, 2, 1, 0, 4};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // false
-
-        nums = new int[]{0};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        nums = new int[]{1, 2};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        nums = new int[]{2, 0};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        nums = new int[]{0, 2, 3};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // false
-
-        nums = new int[]{2, 5, 0, 0};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        nums = new int[]{1, 1, 2, 2, 0, 1, 1};
-        result = jumpGame(nums);
-        System.out.println("**********Result: " + result); // true
-
-        System.out.println("**********Jump Game II**********");
-
-        JumpGame solution = new JumpGame();
-        int[] nums1 = {2, 3, 1, 1, 4};
-        int[] nums2 = {2, 3, 0, 1, 4};
-
-        System.out.println(solution.jumpII(nums1)); // Output: 2
-        System.out.println(solution.jumpII(nums2)); // Output: 2
-    }
-
     public static boolean jumpGame(int[] nums) {
         int n = nums.length;
         boolean[] canJump = new boolean[n];
